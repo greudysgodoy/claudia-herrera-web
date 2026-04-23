@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudia Herrera — Creative Director & Art Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:   #ffffff;
+      --off:     #f7f7f7;
+      --light:   #efefef;
+      --border:  #e0e0e0;
+      --mid:     #999;
+      --dark:    #333;
+      --black:   #0f0f0f;
+      --font-head: 'Syne', 'Arial Black', sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--font-body); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: var(--font-head); font-size: .85rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--dark); text-decoration: none; font-size: .72rem;
+      letter-spacing: .18em; text-transform: uppercase; font-weight: 400;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding: 7rem 3rem 4rem;
+      gap: 4rem; max-width: 1200px; margin: 0 auto;
+      align-items: center;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 2rem; }
+    .hero-eyebrow {
+      font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--mid); font-weight: 400;
+    }
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 800; line-height: .95;
+      letter-spacing: -.02em; text-transform: uppercase;
+      color: var(--black);
+    }
+    .hero-title {
+      font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mid); font-weight: 400; border-left: 2px solid var(--black);
+      padding-left: 1rem;
+    }
+    .hero-bio {
+      font-size: .9rem; line-height: 1.85; color: var(--dark);
+      max-width: 440px;
+    }
+    .hero-tagline {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--black);
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--black); color: var(--white);
+      text-decoration: none; font-size: .72rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: .9rem 2.2rem; transition: background .2s, transform .2s;
+      align-self: flex-start;
+    }
+    .hero-cta:hover { background: var(--dark); transform: translateY(-2px); }
+    .hero-cta svg { width: 14px; height: 14px; }
+
+    /* ─── HERO RIGHT — INSTAGRAM CARD ─── */
+    .hero-right { display: flex; justify-content: center; }
+    .ig-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem; width: 100%; max-width: 380px;
+    }
+    .ig-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .ig-avatar-wrap { position: relative; flex-shrink: 0; width: 72px; height: 72px; }
+    .ig-avatar-ring {
+      position: absolute; inset: -3px; border-radius: 50%;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    .ig-avatar {
+      position: absolute; inset: 2px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--white);
+      filter: grayscale(100%);
+    }
+    .ig-info { flex: 1; }
+    .ig-handle {
+      font-size: .82rem; font-weight: 600; color: var(--black);
+      display: flex; align-items: center; gap: .4rem;
+      font-family: var(--font-head); letter-spacing: .02em;
+    }
+    .ig-verified {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 16px; height: 16px; background: #0095f6; border-radius: 50%; flex-shrink: 0;
+    }
+    .ig-verified svg { width: 9px; height: 9px; fill: #fff; }
+    .ig-name-full { font-size: .75rem; color: var(--mid); margin-top: .15rem; letter-spacing: .04em; }
+    .ig-stats {
+      display: grid; grid-template-columns: repeat(3,1fr); text-align: center;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1rem 0; margin-bottom: 1.5rem;
+    }
+    .ig-stat-num {
+      font-family: var(--font-head); font-size: 1.4rem; font-weight: 700;
+      color: var(--black); letter-spacing: -.02em;
+    }
+    .ig-stat-label { font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: var(--mid); margin-top: .15rem; }
+    .ig-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .ig-grid-img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.05); transition: filter .3s;
+    }
+    .ig-grid-img:hover { filter: grayscale(60%) contrast(1.1); }
+    .ig-follow-btn {
+      display: block; width: 100%; margin-top: 1.2rem;
+      background: transparent; border: 1px solid var(--black);
+      color: var(--black); text-align: center; padding: .65rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; text-decoration: none; transition: background .2s, color .2s;
+      font-family: var(--font-head);
+    }
+    .ig-follow-btn:hover { background: var(--black); color: var(--white); }
+
+    /* ─── THIN LINE ─── */
+    .rule { height: 1px; background: var(--border); max-width: 1200px; margin: 0 auto; }
+    .rule-full { height: 1px; background: var(--border); }
+
+    /* ─── CLIENTS MARQUEE ─── */
+    .clients-bar {
+      background: var(--black); padding: 1.1rem 0; overflow: hidden;
+    }
+    .clients-track {
+      display: flex; gap: 4rem; align-items: center;
+      animation: marquee 18s linear infinite;
+      width: max-content;
+    }
+    .clients-track span {
+      font-family: var(--font-head); font-size: .72rem; font-weight: 700;
+      letter-spacing: .25em; text-transform: uppercase; color: var(--white);
+      white-space: nowrap; opacity: .7;
+    }
+    .clients-track span.dot { opacity: .3; font-size: .5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── ABOUT ─── */
+    .about {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 5rem; padding: 7rem 3rem;
+      align-items: start;
+    }
+    .section-label {
+      font-size: .65rem; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 2rem; display: block;
+    }
+    .about-heading {
+      font-family: var(--font-head); font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 800; line-height: 1.05; text-transform: uppercase;
+      letter-spacing: -.01em;
+    }
+    .about-body {
+      font-size: .92rem; line-height: 1.9; color: var(--dark); margin-top: 1.5rem;
+    }
+    .about-body p + p { margin-top: 1.2rem; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+    .tag {
+      border: 1px solid var(--border); padding: .3rem .8rem;
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--mid);
+    }
+
+    /* ─── SERVICES ─── */
+    .services-section { background: var(--off); padding: 7rem 3rem; }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-header { margin-bottom: 4rem; }
+    .services-title {
+      font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -.01em;
+      line-height: 1;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      padding: 2.5rem 2rem; border-right: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .service-card:last-child { border-right: none; }
+    .service-card:hover { background: var(--white); }
+    .service-num {
+      font-family: var(--font-head); font-size: .7rem; font-weight: 700;
+      letter-spacing: .2em; color: var(--mid); margin-bottom: 1.5rem; display: block;
+    }
+    .service-title {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em; color: var(--black);
+      margin-bottom: .8rem; line-height: 1.3;
+    }
+    .service-desc { font-size: .82rem; line-height: 1.8; color: var(--dark); }
+
+    /* ─── FEATURED CASE ─── */
+    .featured-section { background: var(--black); padding: 7rem 3rem; }
+    .featured-inner { max-width: 1200px; margin: 0 auto; }
+    .featured-eyebrow {
+      font-size: .65rem; letter-spacing: .35em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 1.5rem; display: block;
+    }
+    .featured-header {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: end; gap: 2rem; margin-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 2.5rem;
+    }
+    .featured-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 800; line-height: .92;
+      text-transform: uppercase; letter-spacing: -.02em; color: var(--white);
+    }
+    .featured-meta { text-align: right; display: flex; flex-direction: column; gap: .5rem; }
+    .featured-role {
+      font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .featured-market {
+      font-family: var(--font-head); font-size: .85rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--white);
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 3px; margin-bottom: 3rem;
+    }
+    .featured-img-main {
+      grid-column: 1; grid-row: span 2; overflow: hidden;
+    }
+    .featured-img-main img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s;
+    }
+    .featured-img {
+      overflow: hidden;
+    }
+    .featured-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s;
+    }
+    .featured-grid:hover .featured-img-main img,
+    .featured-grid:hover .featured-img img { transform: scale(1.02); }
+    .featured-info {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .featured-desc { font-size: .88rem; line-height: 1.85; color: rgba(255,255,255,.6); }
+    .featured-stat { }
+    .featured-stat-label {
+      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.3); margin-bottom: .4rem; display: block;
+    }
+    .featured-stat-value {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; color: var(--white); letter-spacing: .04em;
+    }
+
+    /* ─── CASES ─── */
+    .cases-section { padding: 7rem 3rem; max-width: 1200px; margin: 0 auto; }
+    .cases-header { margin-bottom: 4rem; }
+    .cases-title {
+      font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -.01em;
+    }
+    .cases-list { display: flex; flex-direction: column; }
+    .case-item {
+      display: grid; grid-template-columns: 3rem 1fr auto;
+      gap: 0 2.5rem; align-items: start;
+      padding: 2.5rem 0; border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .case-item:first-child { border-top: 1px solid var(--border); }
+    .case-item:hover { background: var(--off); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
+    .case-num {
+      font-family: var(--font-head); font-size: .7rem; font-weight: 700;
+      letter-spacing: .15em; color: var(--mid); padding-top: .15rem;
+    }
+    .case-body { display: flex; flex-direction: column; gap: .6rem; }
+    .case-client {
+      font-family: var(--font-head); font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; line-height: 1.1;
+    }
+    .case-role { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mid); }
+    .case-scope { font-size: .85rem; line-height: 1.75; color: var(--dark); max-width: 560px; }
+    .case-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
+    .case-tag {
+      border: 1px solid var(--border);
+      font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: .25rem .7rem; color: var(--mid);
+    }
+    .case-meta {
+      text-align: right; display: flex; flex-direction: column;
+      gap: .5rem; align-items: flex-end; padding-top: .15rem;
+    }
+    .case-market {
+      font-family: var(--font-head); font-size: .68rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--black);
+    }
+    .case-dist { font-size: .72rem; color: var(--mid); text-align: right; max-width: 130px; line-height: 1.5; }
+
+    /* ─── GALLERY ─── */
+    .gallery-section { background: var(--off); padding: 7rem 3rem; }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; }
+    .gallery-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
+    .gallery-title {
+      font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -.01em;
+    }
+    .gallery-link {
+      font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--black); text-decoration: none; font-weight: 600;
+      font-family: var(--font-head); transition: opacity .2s;
+    }
+    .gallery-link:hover { opacity: .5; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 4px;
+    }
+    .gallery-item { overflow: hidden; aspect-ratio: 1; }
+    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.05);
+      transition: transform .5s ease, filter .4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: grayscale(20%) contrast(1.1); }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      padding: 9rem 3rem; background: var(--black); text-align: center;
+    }
+    .contact-inner { max-width: 700px; margin: 0 auto; }
+    .contact-eyebrow {
+      font-size: .68rem; letter-spacing: .35em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 2rem; display: block;
+    }
+    .contact-heading {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 800; line-height: .95; text-transform: uppercase;
+      letter-spacing: -.02em; color: var(--white); margin-bottom: 2rem;
+    }
+    .contact-sub {
+      font-size: .9rem; color: rgba(255,255,255,.5); max-width: 400px;
+      margin: 0 auto 3rem; line-height: 1.8;
+    }
+    .contact-email {
+      display: inline-block;
+      font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.6rem);
+      font-weight: 600; letter-spacing: .04em; text-transform: lowercase;
+      color: var(--white); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+      padding-bottom: .2rem; transition: border-color .2s, opacity .2s;
+    }
+    .contact-email:hover { border-color: var(--white); opacity: .8; }
+    .contact-phone {
+      display: block; margin-top: 1rem;
+      font-size: .85rem; letter-spacing: .12em; color: rgba(255,255,255,.4);
+    }
+    .contact-socials { display: flex; justify-content: center; gap: 2.5rem; margin-top: 3.5rem; }
+    .contact-social-link {
+      color: rgba(255,255,255,.4); text-decoration: none; font-size: .7rem;
+      letter-spacing: .2em; text-transform: uppercase; font-family: var(--font-head);
+      font-weight: 600; transition: color .2s;
+    }
+    .contact-social-link:hover { color: var(--white); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    footer p { font-size: .7rem; color: var(--mid); letter-spacing: .1em; text-transform: uppercase; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 3rem; }
+      .hero-right { order: -1; }
+      .about { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
+      .services-section { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .featured-section { padding: 4rem 1.5rem; }
+      .featured-header { grid-template-columns: 1fr; gap: 1rem; }
+      .featured-meta { text-align: left; }
+      .featured-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }
+      .featured-img-main { grid-column: span 2; grid-row: 1; }
+      .featured-img-main img { aspect-ratio: 3/2; }
+      .featured-info { grid-template-columns: 1fr; }
+      .cases-section { padding: 4rem 1.5rem; }
+      .case-item { grid-template-columns: 2rem 1fr; gap: 1rem; }
+      .case-meta { display: none; }
+      .gallery-section { padding: 4rem 1.5rem; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+      .contact-section { padding: 5rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .service-card:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Claudia Herrera</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#servicios">Services</a></li>
+      <li><a href="#trabajo">Work</a></li>
+      <li><a href="#contacto">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero">
+      <div class="hero-left">
+        <span class="hero-eyebrow">Creative Director & Art Director</span>
+        <h1 class="hero-name">CLAUDIA<br>HERRERA</h1>
+        <p class="hero-title">Brand Campaigns · Editorial · Visual Storytelling</p>
+        <p class="hero-bio">
+          Creative Director with a strong background in fashion, editorial, and brand campaigns. Experienced in leading creative concepts from initial idea through full-scale production — delivering cohesive, high-quality visual storytelling across diverse markets.
+        </p>
+        <p class="hero-tagline">Bold Ideas. Clear Vision.</p>
+        <a class="hero-cta" href="#contacto">
+          Work With Me
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-right">
+        <div class="ig-card">
+          <div class="ig-card-header">
+            <div class="ig-avatar-wrap">
+              <div class="ig-avatar-ring"></div>
+              <img class="ig-avatar" src="assets/profile.jpg" alt="Claudia Herrera" />
+            </div>
+            <div class="ig-info">
+              <div class="ig-handle">
+                @claudiaherrera.a
+                <span class="ig-verified" title="Cuenta verificada">
+                  <svg viewBox="0 0 14 14"><path d="M7 0L8.75 2.1 11.5 1.5 11.9 4.3 14 5.6 12.6 8 14 10.4 11.9 11.7 11.5 14.5 8.75 13.9 7 16 5.25 13.9 2.5 14.5 2.1 11.7 0 10.4 1.4 8 0 5.6 2.1 4.3 2.5 1.5 5.25 2.1Z"/></svg>
+                </span>
+              </div>
+              <div class="ig-name-full">Claudia Herrera</div>
+            </div>
+          </div>
+          <div class="ig-stats">
+            <div>
+              <div class="ig-stat-num">23</div>
+              <div class="ig-stat-label">Posts</div>
+            </div>
+            <div>
+              <div class="ig-stat-num">2.3K</div>
+              <div class="ig-stat-label">Followers</div>
+            </div>
+            <div>
+              <div class="ig-stat-num">2.2K</div>
+              <div class="ig-stat-label">Following</div>
+            </div>
+          </div>
+          <div class="ig-grid">
+            <img class="ig-grid-img" src="assets/post_1.jpg" alt="" />
+            <img class="ig-grid-img" src="assets/post_2.jpg" alt="" />
+            <img class="ig-grid-img" src="assets/post_3.jpg" alt="" />
+            <img class="ig-grid-img" src="assets/post_4.jpg" alt="" />
+            <img class="ig-grid-img" src="assets/post_5.jpg" alt="" />
+            <img class="ig-grid-img" src="assets/post_6.jpg" alt="" />
+          </div>
+          <a class="ig-follow-btn" href="https://www.instagram.com/claudiaherrera.a/" target="_blank">
+            Ver en Instagram →
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CLIENTS MARQUEE -->
+  <div class="clients-bar">
+    <div class="clients-track">
+      <span>Adidas Originals</span><span class="dot">◆</span>
+      <span>Oreo</span><span class="dot">◆</span>
+      <span>Pepsi</span><span class="dot">◆</span>
+      <span>Maltín Polar</span><span class="dot">◆</span>
+      <span>FVF Venezuela</span><span class="dot">◆</span>
+      <span>Mondelez International</span><span class="dot">◆</span>
+      <span>Palacio del Blumer</span><span class="dot">◆</span>
+      <span>Diane &amp; Geordi</span><span class="dot">◆</span>
+      <span>Cupido Style</span><span class="dot">◆</span>
+      <!-- duplicate for seamless loop -->
+      <span>Adidas Originals</span><span class="dot">◆</span>
+      <span>Oreo</span><span class="dot">◆</span>
+      <span>Pepsi</span><span class="dot">◆</span>
+      <span>Maltín Polar</span><span class="dot">◆</span>
+      <span>FVF Venezuela</span><span class="dot">◆</span>
+      <span>Mondelez International</span><span class="dot">◆</span>
+      <span>Palacio del Blumer</span><span class="dot">◆</span>
+      <span>Diane &amp; Geordi</span><span class="dot">◆</span>
+      <span>Cupido Style</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+      <div>
+        <span class="section-label">About</span>
+        <h2 class="about-heading">CREATIVE VISION WITH REAL RESULTS</h2>
+      </div>
+      <div>
+        <div class="about-body">
+          <p>
+            Soy Claudia Herrera, Directora Creativa y Directora de Arte con sólida trayectoria en moda, editorial y campañas de marca. Lidero proyectos creativos desde la conceptualización inicial hasta la producción a gran escala, colaborando con equipos multidisciplinarios para entregar storytelling visual de alta calidad.
+          </p>
+          <p>
+            Mi capacidad para equilibrar visión creativa con ejecución práctica me ha llevado a trabajar con marcas globales como <strong>Adidas Originals</strong>, <strong>Oreo</strong>, <strong>Pepsi</strong> y <strong>Maltín Polar</strong>, además de coordinar campañas para la <strong>Federación Venezolana de Fútbol</strong> en televisión, plataformas digitales y redes sociales.
+          </p>
+          <p>
+            Actualmente AD en <strong>@amelior.thefirm</strong>, produciendo contenido de alto impacto para mercados locales e internacionales.
+          </p>
+        </div>
+        <div class="about-tags">
+          <span class="tag">Creative Direction</span>
+          <span class="tag">Art Direction</span>
+          <span class="tag">Brand Campaigns</span>
+          <span class="tag">Editorial</span>
+          <span class="tag">Visual Storytelling</span>
+          <span class="tag">Production Leadership</span>
+          <span class="tag">On-Set Coordination</span>
+          <span class="tag">Fashion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule-full"></div>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="services-section">
+    <div class="services-inner">
+      <div class="services-header">
+        <span class="section-label">Services</span>
+        <h2 class="services-title">WHAT I DO</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <h3 class="service-title">Commercials & Large Scale Campaigns</h3>
+          <p class="service-desc">Dirección creativa y coordinación de producción para campañas audiovisuales de gran escala. Distribución en TV, plataformas digitales y redes sociales.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <h3 class="service-title">Brand Campaigns</h3>
+          <p class="service-desc">Del concepto y la dirección de arte hasta la producción completa — incluyendo casting, preproducción y coordinación en set.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <h3 class="service-title">Editorial & Personal Stories</h3>
+          <p class="service-desc">Desarrollo conceptual, dirección creativa y coordinación de producción para contenido editorial, sesiones fotográficas y storytelling personal de marca.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <h3 class="service-title">Flat Lays & Content Creation</h3>
+          <p class="service-desc">Overhead shots con propósito — estilizados para contar historias, elevar productos y hacer que cada detalle cuente. Ideal para marcas, libros y feeds sociales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: ADIDAS -->
+  <section id="trabajo" class="featured-section">
+    <div class="featured-inner">
+      <span class="featured-eyebrow">Featured Project</span>
+      <div class="featured-header">
+        <h2 class="featured-title">ADIDAS<br>ORIGINALS<br>× FVF</h2>
+        <div class="featured-meta">
+          <span class="featured-role">Creative Director</span>
+          <span class="featured-market">Global Campaign — 2026</span>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <div class="featured-img-main">
+          <img src="assets/adidas_1_img0.jpeg" alt="Adidas Originals x FVF Away Kit 2026" />
+        </div>
+        <div class="featured-img">
+          <img src="assets/adidas_2_img0.jpeg" alt="Adidas Originals x FVF — Campaign" />
+        </div>
+        <div class="featured-img">
+          <img src="assets/adidas_2_img1.jpeg" alt="Adidas Originals x FVF — Campaign" />
+        </div>
+        <div class="featured-img">
+          <img src="assets/adidas_2_img2.jpeg" alt="Adidas Originals x FVF — Campaign" />
+        </div>
+      </div>
+
+      <div class="featured-info">
+        <p class="featured-desc">
+          Dirección creativa, producción fotográfica editorial y estrategia de contenido audiovisual de alto nivel para el lanzamiento global del Away Kit 2026 de Adidas Originals × Federación Venezolana de Fútbol. Integración cohesiva de imagen fija y video cinematográfico para destacar el patrimonio del fútbol venezolano en mercados internacionales.
+        </p>
+        <div>
+          <span class="featured-stat-label">Scope</span>
+          <span class="featured-stat-value">Editorial Photography · Audiovisual Strategy</span>
+        </div>
+        <div>
+          <span class="featured-stat-label">Distribution</span>
+          <span class="featured-stat-value">Global — Digital Platforms & Social Media</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="cases-section">
+    <div class="cases-header">
+      <span class="section-label">Selected Work</span>
+      <h2 class="cases-title">PROJECTS</h2>
+    </div>
+    <div class="cases-list">
+
+      <div class="case-item">
+        <span class="case-num">01</span>
+        <div class="case-body">
+          <p class="case-role">Creative Direction & Production Coordination</p>
+          <h3 class="case-client">FVF — Vinotinto</h3>
+          <p class="case-scope">Desarrollo creativo continuo y coordinación de todas las campañas audiovisuales y comerciales de TV de la Selección Nacional de Venezuela, trabajando directamente con atletas profesionales y equipos de producción. Enfoque en storytelling emocional, consistencia de marca y coordinación a gran escala.</p>
+          <div class="case-tags">
+            <span class="case-tag">Ongoing</span>
+            <span class="case-tag">Sports</span>
+            <span class="case-tag">Emotional Storytelling</span>
+            <span class="case-tag">Large-Scale</span>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="case-market">Venezuela</span>
+          <span class="case-dist">TV · Digital · Social Media</span>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <span class="case-num">02</span>
+        <div class="case-body">
+          <p class="case-role">Creative Direction & Production Coordination</p>
+          <h3 class="case-client">Oreo — Brand & Commercial Campaigns</h3>
+          <p class="case-scope">Dirección y coordinación de dos campañas comerciales para Oreo Venezuela, supervisando la producción audiovisual, ejecución en set y colaboración con el equipo de marca y agencia.</p>
+          <div class="case-tags">
+            <span class="case-tag">TV</span>
+            <span class="case-tag">Digital</span>
+            <span class="case-tag">Commercial</span>
+            <span class="case-tag">Mondelez Intl.</span>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="case-market">Venezuela</span>
+          <span class="case-dist">Television & Digital Platforms</span>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <span class="case-num">03</span>
+        <div class="case-body">
+          <p class="case-role">Creative Direction & Production Coordination</p>
+          <h3 class="case-client">Maltín Polar — Líder</h3>
+          <p class="case-scope">Campaña con el atleta @jonaramburu_. Desarrollo de campaña, coordinación on-set y producción de contenido audiovisual en colaboración con el equipo de talento y marcas. Producción en España.</p>
+          <div class="case-tags">
+            <span class="case-tag">España</span>
+            <span class="case-tag">Sports Talent</span>
+            <span class="case-tag">Social Media</span>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="case-market">España</span>
+          <span class="case-dist">Digital & Social Media</span>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <span class="case-num">04</span>
+        <div class="case-body">
+          <p class="case-role">Marketing Manager & Creative Lead</p>
+          <h3 class="case-client">Palacio del Blumer / Diane & Geordi</h3>
+          <p class="case-scope">Liderazgo de estrategia de marca y campañas audiovisuales desarrolladas para múltiples mercados. Supervisión de dirección creativa, producción y coordinación de equipos con enfoque en consistencia de marca y estrategia visual a largo plazo.</p>
+          <div class="case-tags">
+            <span class="case-tag">5 Countries</span>
+            <span class="case-tag">Fashion</span>
+            <span class="case-tag">Brand Strategy</span>
+            <span class="case-tag">International</span>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="case-market">5 Mercados</span>
+          <span class="case-dist">Multi-market Campaigns</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <div>
+          <span class="section-label">Instagram</span>
+          <h2 class="gallery-title">VISUAL FEED</h2>
+        </div>
+        <a class="gallery-link" href="https://www.instagram.com/claudiaherrera.a/" target="_blank">Ver todo →</a>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="assets/post_1.jpg" alt="" /></div>
+        <div class="gallery-item"><img src="assets/post_3.jpg" alt="" /></div>
+        <div class="gallery-item"><img src="assets/post_6.jpg" alt="" /></div>
+        <div class="gallery-item"><img src="assets/post_8.jpg" alt="" /></div>
+        <div class="gallery-item"><img src="assets/post_9.jpg" alt="" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="contact-section">
+    <div class="contact-inner">
+      <span class="contact-eyebrow">Contact</span>
+      <h2 class="contact-heading">LET'S<br>MAKE SOMETHING<br>GREAT</h2>
+      <p class="contact-sub">
+        ¿Tienes un proyecto en mente? Hablemos de cómo darle vida con visión creativa real.
+      </p>
+      <a class="contact-email" href="mailto:claudiah.pro@gmail.com">claudiah.pro@gmail.com</a>
+      <span class="contact-phone">+58 424 559 5001</span>
+      <div class="contact-socials">
+        <a class="contact-social-link" href="https://www.instagram.com/claudiaherrera.a/" target="_blank">@claudiaherrera.a</a>
+        <a class="contact-social-link" href="https://www.instagram.com/amelior.thefirm/" target="_blank">@amelior.thefirm</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Claudia Herrera</p>
+    <p>Creative Director & Art Director</p>
+  </footer>
+
+</body>
+</html>
